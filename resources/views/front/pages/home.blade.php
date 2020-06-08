@@ -60,7 +60,8 @@
                             <a href="news/{!! strtolower($news[$key]->category_name)!!}/{{ strtolower(str_replace(' ','_',$ne->title)) }}/{{ $ne->id }}" class="post-title">
                                 <h6>{{ $ne->title }}</h6>
                             </a>
-                            <p class="post-date"><span>7:00 AM</span> | <span>April 14</span></p>
+                            <p class="post-date"><span>{{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $ne->created_at)->format('g:iA') }}
+                            </span> | {{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $ne->created_at)->format('F,Y') }} <span></span></p>
                         </div>
                     </div>
                 </div>
