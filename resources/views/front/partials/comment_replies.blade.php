@@ -1,6 +1,6 @@
 @foreach($comments as $comment)
 <div class="display-comment">
-    <strong>{{ $comment->user->name }}</strong>
+    <p><img src="{{ asset('front/img/noimage.jpg') }}"  style="margin-left:30px;" onclick="myFunction()" class="float-left rounded-circle" width="40" height="40" alt="">{{ $comment->user->name }}</p>
     <p>{{ $comment->body }}</p>
     <a href="" id="reply"></a>
     <form method="post" action="{{ route('reply.add') }}">

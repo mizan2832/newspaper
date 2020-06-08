@@ -60,7 +60,7 @@
 
                                     <div class="dropdown">
                                             
-                                            <img src="{{ asset('front/img/noimage.png') }}"  style="margin-left:30px;" onclick="myFunction()" class="dropbtn" width="40" height="40" alt="">
+                                            <img src="{{ asset('front/img/noimage.jpg') }}"  style="margin-left:30px;" onclick="myFunction()" class="dropbtn rounded-circle" width="40" height="40" alt="">
                                             <div id="myDropdown" class="dropdown-content">
                                             @if (Auth::user())
                                             <p style="margin-bottom:-15px;"><img src="{{ asset('front/img/noimage.png') }}" alt="" width="20" height="20"><b>{{ Auth::user()->name }}<b></p>

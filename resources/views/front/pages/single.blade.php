@@ -23,7 +23,7 @@
                                 <h6>{!! $singlenews->title !!}</h6>
                             </a>
                             <div class="post-meta">
-                                <p class="post-author">By <a href="#"></a></p>
+                                <p class="post-author"><b>By {{ Auth::user()->name }}</b> <a href="#"></a></p>
                                 <p>{!! nl2br($singlenews->description) !!}</p>
                                 <div class="newspaper-post-like d-flex align-items-center justify-content-between">
                                     <!-- Tags -->
