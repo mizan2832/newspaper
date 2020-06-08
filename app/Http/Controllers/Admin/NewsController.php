@@ -55,7 +55,7 @@ class NewsController extends Controller
 
 
         $news              = new News();
-        $news->category_id = 0;
+        $news->category_id = $request->category;
         $news->user_id     = 0;
         $news->title       = $request->title;
         $news->slug        = strtolower($request->title);

@@ -23,7 +23,7 @@
                                 <h6>{!! $singlenews->title !!}</h6>
                             </a>
                             <div class="post-meta">
-                                <p class="post-author"><b>By {{ Auth::user()->name }}</b> <a href="#"></a></p>
+                                <p class="post-author"><b>By </b> <a href="#"></a></p>
                                 <p>{!! nl2br($singlenews->description) !!}</p>
                                 <div class="newspaper-post-like d-flex align-items-center justify-content-between">
                                     <!-- Tags -->
@@ -71,25 +71,27 @@
                     </div>
                     <!-- Comment Area Start -->
                     <div class="post-a-comment-area section-padding-80-0">
-                        <h4> {{ $singlenews->comments()->count() }} Comments</h4>
+                        <div id="disqus_thread"></div>
+<script>
 
-                        @include('front.partials.comment_replies', ['comments' => $singlenews->comments, 'news_id' => $singlenews->id])
-                        <h3>Do you have any comment about this news?</h3>
-                        <div class="contact-form-area">
-                            <form action="{{ route('comment.add') }}" method="post">
-                             @csrf
-                                <div class="row">                      
-                                    <div class="col-12">
-                                        <textarea name="comment_body" class="form-control" id="message" cols="20" rows="10"
-                                            placeholder="Post Your Commner Here"></textarea>
-                                        <input type="hidden" name="news_id" value="{{ $singlenews->id }}" />
-                                    </div>
-                                    <div class="col-12 text-center">
-                                        <button class="btn btn-success" type="submit">Add Comment</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://newspaper-com.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                            
                     </div>
                 </div>
             </div>
