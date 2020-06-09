@@ -61,4 +61,10 @@
 	      
 	    </tbody>
 	  </table>
+	  
+	  <div style="padding-left:500px;">
+		  {{ $news->links() }}
+
+	  </div>
+	
 @endsection

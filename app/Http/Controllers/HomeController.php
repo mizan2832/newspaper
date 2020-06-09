@@ -14,7 +14,7 @@ class HomeController extends Controller
         $news = DB::table('news')
             ->select('news.*', 'categories.name as category_name')
             ->leftJoin('categories', 'categories.id', '=', 'news.category_id')
-            ->take(6)->get();
+            ->take(6)->orderby('id','desc')->get();
         //dd($news);
 
         $category = Category::all();
