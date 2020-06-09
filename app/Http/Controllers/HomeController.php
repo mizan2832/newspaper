@@ -8,8 +8,6 @@ use DB;
 class HomeController extends Controller
 {
 
-    
-
     public function index()
     {
 
@@ -22,4 +20,5 @@ class HomeController extends Controller
         $category = Category::all();
         return view('front.pages.home')->withCategories($category)->withNews($news);
     }
+    
 }

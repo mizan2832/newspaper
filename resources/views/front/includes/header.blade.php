@@ -59,16 +59,25 @@
                                     </div> --}}
 
                                     <div class="dropdown">
-                                            
+                                        @if ((Auth::check() &&Auth::user()->role->id == 2) || (Auth::check() &&Auth::user()->role->id == 3) )
                                             <img src="{{ asset('front/img/noimage.jpg') }}"  style="margin-left:30px;" onclick="myFunction()" class="dropbtn rounded-circle" width="40" height="40" alt="">
+                                        @else
+                                            <img src="{{ asset('front/img/noimag.png') }}"  style="margin-left:30px;" onclick="myFunction()" class="dropbtn rounded-circle" width="40" height="40" alt="">
+                                        @endif
                                             <div id="myDropdown" class="dropdown-content">
                                             @if (Auth::user())
-                                            <p style="margin-bottom:-15px;"><img src="{{ asset('front/img/noimage.png') }}" alt="" width="20" height="20"><b>{{ Auth::user()->name }}<b></p>
-                                            <a href="/logout">Logout</a>
+                                                <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                document.getElementById('logout-form').submit();"><i class="fa fa-envelope"></i>Logout</a> 
                                                 
+                                                <form id="logout-form"  action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                        @csrf
+                                                      </form>  
+ 
                                             @else
                                             <a href="{{ route('login') }}">Login</a>
-                                            <a href="{{ route('register') }}">Register</a>
+                                            @if ((Auth::check() && Auth::user()->role->id == 3))
+                                                <a href="{{ route('register') }}">Register</a>
+                                            @endif
                                             @endif
                                               
                                             </div>

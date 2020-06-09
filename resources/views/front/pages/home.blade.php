@@ -35,9 +35,7 @@
                                 </div>
                             </div>
                         </div>
-                        
 
-                        <!-- Single Featured Post -->
                     </div>
                     @if ($key==3)
                         @break
