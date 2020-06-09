@@ -6,6 +6,7 @@
 	  <table class="table table-dark">
 	    <thead>
 	      <tr>
+	        <th>SI</th>
 	        <th>Title</th>
 	        <th>Category</th>
 	        <th>Tag</th>
@@ -17,6 +18,7 @@
 	    <tbody>
 	       @foreach ($news as $ne)
 	       	   <tr>
+		        <td>{{$loop->index+1}}</td>
 		        <td>{{$ne->title}}</td>
 		        <td>
 		        	<ul>
