@@ -121,7 +121,8 @@
                     <div class="classynav">
                         <ul>
                             @foreach ($categories as $category)
-                                <li><a href="/{{ strtolower($category->name) }}">{{ $category->name }}</a></li>
+                                <li><a href="news/{{ strtolower($category->name) }}">{{ $category->name }}</a></li>
+                                
                             @endforeach
 
                             <li><a href="#">সব</a>

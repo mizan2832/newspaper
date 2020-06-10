@@ -2,7 +2,13 @@
 @section('title','Admin | All News')
 
 @section('content')
-	 <h2>All News</h2>
+	<form style="float:right" action="{{ route('admin.search') }}" method="POST"> 
+		{{ csrf_field() }}
+		<input style="float:right;width:400px;" name="search" type="text" placeholder="Search here">
+		 <input type="submit" name="submit" class="btn btn-sm btn-success">
+
+	</form>
+	 <h3>All News</h3>
 	  <table class="table table-dark">
 	    <thead>
 	      <tr>
@@ -64,7 +70,6 @@
 	  
 	  <div style="padding-left:500px;">
 		  {{ $news->links() }}
-
 	  </div>
 	
 @endsection
