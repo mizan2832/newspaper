@@ -69,23 +69,17 @@
                         <div id="disqus_thread"></div>
 <script>
 
-/**
-*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-/*
-var disqus_config = function () {
-this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-};
-*/
-(function() { // DON'T EDIT BELOW THIS LINE
+
+(function() { 
 var d = document, s = d.createElement('script');
 s.src = 'https://newspaper-com.disqus.com/embed.js';
 s.setAttribute('data-timestamp', +new Date());
 (d.head || d.body).appendChild(s);
 })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<noscript>Please enable JavaScript to view the 
+    <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
                             
                     </div>
                 </div>
@@ -93,11 +87,7 @@ s.setAttribute('data-timestamp', +new Date());
 
             <div class="col-12 col-lg-4">
                 <div class="blog-sidebar-area">
-
-                    <!-- Latest Posts Widget -->
                     <div class="latest-posts-widget mb-50">
-
-                       
 
                         @foreach ($news as $key => $ne)
                 <div class="single-blog-post small-featured-post d-flex">
@@ -110,7 +100,8 @@ s.setAttribute('data-timestamp', +new Date());
                             <a href="/details/{!! strtolower($news[$key]->category_name)!!}/{{ strtolower(str_replace(' ','_',$ne->title)) }}/{{ $ne->id }}">
                                 <h6>{{ $ne->title }}</h6>
                             </a>
-                            <p class="post-date"><span>7:00 AM</span> | <span>April 14</span></p>
+                            <p class="post-date"><span>{{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $ne->created_at)->format('g:iA') }}
+                            </span>|<span> {{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $ne->created_at)->format('F,Y') }}</span></p>
                         </div>
                     </div>
                 </div>
