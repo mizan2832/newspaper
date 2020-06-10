@@ -1,10 +1,5 @@
 @extends('front.index')
 <title>The Potrikar Pata-{{ ucfirst(strtolower(str_replace(' ','_',$singlenews->title))) }}</title>
-<style>
-    .display-comment .display-comment {
-        margin-left: 40px
-    }
-</style>
 @section('content')
 <div class="blog-area section-padding-0-80">
     <div class="container">
@@ -15,11 +10,11 @@
                     <!-- Single Featured Post -->
                     <div class="single-blog-post featured-post single-post">
                         <div class="post-thumb">
-                            <a href="news/{!! strtolower($singlenews->category_name)!!}/{{ strtolower(str_replace(' ','_',$singlenews->title)) }}/{{ $singlenews->id }}"><img src="{{ asset('images/thumbnail/') }}/{{$singlenews->image}}" alt=""></a>
+                            <a href=""><img src="{{ asset('images/thumbnail/') }}/{{$singlenews->image}}" alt=""></a>
                         </div>
                         <div class="post-data">
                             <a href="#" class="post-catagory">{!! strtoupper($singlenews->category_name)!!}</a>
-                            <a href="#" class="post-title">
+                            <a href="/details/{{ strtolower($singlenews->category_name) }}/{{ strtolower(str_replace(' ','_',$singlenews->title)) }}/{{ $singlenews->id }}" class="post-title">
                                 <h6>{!! $singlenews->title !!}</h6>
                             </a>
                             <div class="post-meta">
@@ -112,7 +107,7 @@ s.setAttribute('data-timestamp', +new Date());
                     <div class="post-data">
                         <a href="{!! strtolower($news[$key]->category_name)!!}" class="post-catagory">{!! $news[$key]->category_name !!}</a>
                         <div class="post-meta">
-                            <a href="news/{!! strtolower($news[$key]->category_name)!!}/{{ strtolower(str_replace(' ','_',$ne->title)) }}/{{ $ne->id }}" class="post-title">
+                            <a href="/details/{!! strtolower($news[$key]->category_name)!!}/{{ strtolower(str_replace(' ','_',$ne->title)) }}/{{ $ne->id }}">
                                 <h6>{{ $ne->title }}</h6>
                             </a>
                             <p class="post-date"><span>7:00 AM</span> | <span>April 14</span></p>

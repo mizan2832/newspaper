@@ -15,9 +15,7 @@ Route::group(['as' => 'author.', 'prefix' => 'author', 'namespace' => 'Author', 
     Route::get('dashboard', 'DashboardController@index')->name('dashboard');
 });
 
-Route::group(['prefix' => 'news', 'namespace' => 'Category News'], function () {
-    Route::get('bangladesh', 'CategoryNewsController@category');
-});
+Route::get('details/{category_name}/{title}/{id}', 'singleNewsController@getSingle');
 
 Route::prefix('news')->group(function () {
     Route::get('/bangladesh', 'CategoryNewsController@category');

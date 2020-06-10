@@ -19,7 +19,7 @@
                             <div class="post-data">
                                 <a href="{!! strtolower($news[$key]->category_name)!!}" class="post-catagory">{!! $news[$key]->category_name !!}</a>
                                 <div class="post-meta">
-                                    <a href="news/{!! strtolower($news[$key]->category_name)!!}/{{ strtolower(str_replace(' ','_',$ne->title)) }}/{{ $ne->id }}" class="post-title">
+                                    <a href="/details/{!! strtolower($news[$key]->category_name)!!}/{{ strtolower(str_replace(' ','_',$ne->title)) }}/{{ $ne->id }}" class="post-title">
                                         <h6>{{ $ne->title }}</h6>
                                     </a>
                                     <p><b>{!! substr(nl2br($ne->description),0,100) !!}</b></p>
@@ -55,7 +55,7 @@
                     <div class="post-data">
                         <a href="{!! strtolower($news[$key]->category_name)!!}" class="post-catagory">{!! $news[$key]->category_name !!}</a>
                         <div class="post-meta">
-                            <a href="news/{!! strtolower($news[$key]->category_name)!!}/{{ strtolower(str_replace(' ','_',$ne->title)) }}/{{ $ne->id }}" class="post-title">
+                            <a href="/details/{!! strtolower($news[$key]->category_name)!!}/{{ strtolower(str_replace(' ','_',$ne->title)) }}/{{ $ne->id }}" class="post-title">
                                 <h6>{{ $ne->title }}</h6>
                             </a>
                             <p class="post-date"><span>{{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $ne->created_at)->format('g:iA') }}
