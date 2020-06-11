@@ -26,6 +26,7 @@
                                             <p><b>{!! substr(nl2br($ne->description),0,100) !!}</b></p>
                                             <!-- Post Like & Post Comment -->
                                             <div class="d-flex align-items-center">
+                                                <button class="btn btn-primary btn-sm"><a class="text-white" href="/details/{{ $category_name }}/{{ strtolower(str_replace(' ','_',$ne->title)) }}/{{ $ne->id }}">READ</a></button>
                                                 <a href="#" class="post-like"><img
                                                         src=" {{ asset('front/img/core-img/like.png') }}" alt="">
                                                     <span>392</span></a>

@@ -21,6 +21,7 @@ class CreateNewsTable extends Migration
             $table->string('slug');
             $table->text('description');
             $table->string('image')->default('default.jpg');
+            $table->interger('total_view')->default(0);
             $table->timestamps();
         });
     }

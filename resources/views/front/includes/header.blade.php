@@ -13,6 +13,8 @@
     
         <!-- Favicon -->
         <link rel="icon" href="{{ asset('front/img/core-img/favicon.ico') }} ">
+        <link rel="stylesheet" href="{{ asset('front/fontawesome/css/fontawesome.min.css') }} ">
+
     
         <!-- Core Stylesheet -->
         <link rel="stylesheet" href="{{ asset('front/style.css') }} ">
