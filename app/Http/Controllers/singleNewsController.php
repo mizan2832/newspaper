@@ -20,7 +20,7 @@ class singleNewsController extends Controller
         $count = $count + 1;
         $singleNews->total_view = $count;
         $singleNews->save();
-        
+       
         return view('front.pages.single',['category_name',$category_name])
                                         ->withSinglenews($singleNews)
                                         ->withCategories($category)
