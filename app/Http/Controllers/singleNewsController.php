@@ -20,10 +20,14 @@ class singleNewsController extends Controller
         $count = $count + 1;
         $singleNews->total_view = $count;
         $singleNews->save();
+        $breaking = DB::table('news')->where('category_id','12')->whereDate('created_at','2020-06-12')->get();
+
+        
        
         return view('front.pages.single',['category_name',$category_name])
                                         ->withSinglenews($singleNews)
                                         ->withCategories($category)
+                                        ->withBreaking($breaking)
                                         ->withNews($news);
 
     }

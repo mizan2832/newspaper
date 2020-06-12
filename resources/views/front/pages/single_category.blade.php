@@ -10,6 +10,12 @@
         
                             <!-- Single Featured Post -->
                           @foreach ($news as $ne)
+
+                            @if ($category_name=='breaking')
+                                @php
+                                    continue
+                                @endphp
+                            @endif
                             <div class="col-12 col-lg-6">
                                 <!-- Single Featured Post -->
                                 <div class="single-blog-post featured-post-2">
@@ -68,7 +74,12 @@
 
                        
 
-                        @foreach ($categorynews as $key => $ne)
+                @foreach ($categorynews as $key => $ne)
+                    @if (strtolower($categorynews[$key]->category_name)=='breaking')
+                        @php
+                            continue
+                        @endphp
+                    @endif
                 <div class="single-blog-post small-featured-post d-flex">
                     <div class="post-thumb">
                         <a href="#"><img src="{{ asset('images/thumbnail/') }}/{{$ne->image}}" alt=""></a>

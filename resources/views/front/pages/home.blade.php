@@ -7,9 +7,14 @@
         <div class="row">
             <div class="col-12 col-md-6 col-lg-8">
                 <div class="row">
-
+                    
                     <!-- Single Featured Post -->
                   @foreach ($news as $key => $ne)
+                    @if (strtolower($news[$key]->category_name)=='breaking')
+                        @php
+                            continue
+                        @endphp
+                    @endif
                     <div class="col-12 col-lg-6">
                         <!-- Single Featured Post -->
                         <div class="single-blog-post featured-post-2">
@@ -48,6 +53,12 @@
                 <!-- Single  Post -->
 
                 @foreach ($news as $key => $ne)
+
+                @if (strtolower($news[$key]->category_name)=='breaking')
+                            @php
+                                continue
+                            @endphp
+                @endif
                 <div class="single-blog-post small-featured-post d-flex">
                     <div class="post-thumb">
                         <a href="#"><img src="{{ asset('images/thumbnail/') }}/{{$ne->image}}" alt=""></a>
@@ -193,6 +204,11 @@
                     @foreach ($popularnews as $key => $popular)
                         
                     <div class="single-popular-post">
+                        @if (strtolower($popularnews[$key]->category_name)=='breaking')
+                            @php
+                                continue
+                            @endphp
+                        @endif
                         <a href="/details/{!! strtolower($popularnews[$key]->category_name)!!}/{{ strtolower(str_replace(' ','_',$ne->title)) }}/{{ $ne->id }}">
                             <h6><span>{{ $loop->index+1 }}</span> {{ $popular->title }}</h6>
                         </a>
@@ -208,10 +224,11 @@
                 <div class="newsletter-widget">
                     <h4>Newsletter</h4>
                     <p class="text-green">Subcribe to get braking news in your email address.</p>
-                    <form action="#" method="post">
-                        <input type="text" name="text" placeholder="Name">
+                    <form action="/newsletter" method="POST">
+                        @csrf
+                        <input type="text" name="name" placeholder="Name">
                         <input type="email" name="email" placeholder="Email">
-                        <button type="submit" class="btn w-100">Subscribe</button>
+                        <input type="submit" class="btn w-100">
                     </form>
                 </div>
             </div>

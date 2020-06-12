@@ -1,5 +1,7 @@
+@if ($breaking->isNotEmpty())
 <div class="hero-area">
     <div class="container">
+
         <div class="row align-items-center">
             <div class="col-12 col-lg-8">
                 <!-- Breaking News Widget -->
@@ -9,26 +11,15 @@
                     </div>
                     <div id="breakingNewsTicker" class="ticker">
                         <ul>
-                            <li><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></li>
-                            <li><a href="#">Welcome to Colorlib Family.</a></li>
-                            <li><a href="#">Nam eu metus sitsit amet, consec!</a></li>
+                            @foreach ($breaking as $br)
+                                <li><a href="/details/breaking/{{ strtolower(str_replace(' ','_',$br->title)) }}/{{ $br->id }}">{{ $br->title }}</a></li>     
+                            @endforeach
                         </ul>
                     </div>
                 </div>
 
                 <!-- Breaking News Widget -->
-                <div class="breaking-news-area d-flex align-items-center mt-15">
-                    <div class="news-title title2">
-                        <p>International</p>
-                    </div>
-                    <div id="internationalTicker" class="ticker">
-                        <ul>
-                            <li><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></li>
-                            <li><a href="#">Welcome to Colorlib Family.</a></li>
-                            <li><a href="#">Nam eu metus sitsit amet, consec!</a></li>
-                        </ul>
-                    </div>
-                </div>
+                
             </div>
 
             <!-- Hero Add -->
@@ -40,3 +31,6 @@
         </div>
     </div>
 </div>
+@else
+    <div style="margin-bottom:10px;"></div>
+@endif

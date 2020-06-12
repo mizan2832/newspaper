@@ -46,9 +46,10 @@
                                     </div>
                                     <!-- Search Form -->
                                     <div class="search-form">
-                                        <form action="#" method="post">
-                                            <input type="search" name="search" class="form-control" placeholder="Search">
-                                            <button type="submit"><i class="fa fa-search" aria-hidden="true"></i>  </button>
+                                        <form action="{{ route('search') }}" method="POST">
+                                            {{ csrf_field() }}
+                                            <input type="text" name="search" class="form-control" placeholder="Search">
+                                            <button name="submit" type="submit"><i class="fa fa-search" aria-hidden="true"></i>  </button>
                                         </form>
                                     </div>
 
@@ -123,6 +124,11 @@
                     <div class="classynav">
                         <ul>
                             @foreach ($categories as $category)
+                                @if ($category->name=='breaking')
+                                    @php
+                                        continue
+                                    @endphp
+                                @endif
                                 <li><a href="/news/{{ strtolower($category->name) }}">{{ $category->name }}</a></li>
                                 
                             @endforeach

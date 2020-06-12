@@ -2,8 +2,8 @@
 @section('title','Admin | All News')
 
 @section('content')
-	<form style="float:right" action="{{ route('admin.search') }}" method="POST"> 
-		{{ csrf_field() }}
+	<form> 
+		
 		<input style="float:right;width:400px;" name="search" type="text" placeholder="Search here">
 		 <input type="submit" name="submit" class="btn btn-sm btn-success">
 
