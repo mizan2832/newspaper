@@ -15,7 +15,7 @@
         <link rel="icon" href="{{ asset('front/img/core-img/favicon.ico') }} ">
         <link rel="stylesheet" href="{{ asset('front/fontawesome/css/fontawesome.min.css') }} ">
 
-    
+        @stack('styles')
         <!-- Core Stylesheet -->
         <link rel="stylesheet" href="{{ asset('front/style.css') }} ">
     
@@ -45,21 +45,13 @@
                                         <a href=""></a>
                                     </div>
                                     <!-- Search Form -->
-                                    <div class="search-form">
+                                    <div class="search-form" >
                                         <form action="{{ route('search') }}" method="POST">
                                             {{ csrf_field() }}
-                                            <input type="text" name="search" class="form-control" placeholder="Search">
+                                            <input type="text" name="search" class="form-control" placeholder="Search" style="">
                                             <button name="submit" type="submit"><i class="fa fa-search" aria-hidden="true"></i>  </button>
                                         </form>
                                     </div>
-
-                                    {{-- <div class="dropdown">
-                                            <img src="{{ asset('front/img/noimage.png') }}" style="margin-left:30px;" width="40" height="40" alt="">
-                                        <div class="dropdown-content">
-                                             <a href="{{ route('login') }}">Login</a>
-                                             <a href="{{ route('register') }}">Register</a>
-                                        </div>
-                                    </div> --}}
 
                                     <div class="dropdown">
                                         @if ((Auth::check() &&Auth::user()->role->id == 2) || (Auth::check() &&Auth::user()->role->id == 3) )

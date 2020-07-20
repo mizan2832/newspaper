@@ -3,7 +3,7 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::post('/search', 'HomeController@search')->name('search');
-Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin','middleware' => [ 'admin']], function () {
+Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin','middleware' => ['auth', 'admin']], function () {
     Route::get('dashboard', 'DashboardController@index')->name('dashboard');
     Route::resource('news', 'NewsController');
     Route::resource('category', 'CategoryController');

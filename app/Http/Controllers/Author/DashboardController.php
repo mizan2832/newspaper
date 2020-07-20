@@ -15,15 +15,21 @@ class DashboardController extends Controller
         ->select('news.*', 'categories.name as category_name')
         ->leftJoin('categories', 'categories.id', '=', 'news.category_id')
         ->orderby('news.*','asc')
-        ->limit(6)->first();
+        ->limit(6)->paginate(2);
 
+    $popularnews = DB::table('news')
+        ->select('news.*', 'categories.name as category_name')
+        ->leftJoin('categories', 'categories.id', '=', 'news.category_id')
+        ->take(4)->orderby('total_view','desc')->get();
+        $breaking = DB::table('news')->where('category_id','12')->whereDate('created_at','2020-06-12')->get();
     
      
     $category = Category::all();
         return view('front.pages.home')
                                         ->withCategories($category)
                                         ->withNews($news)
-                                        ->withPopular_news($popular_news);
+                                        ->withBreaking($breaking)
+                                        ->withPopularnews($popular_news);
     	
     }
 }
