@@ -39,7 +39,6 @@ class HomeController extends Controller
                                  ->where('title',$request->search)
                                  ->orWhere('title','like',"%$request->search%")
                                  ->orWhere('description','like',"%$request->search%")->get();
-        // dd($search);
         $category = Category::all();
         $breaking = DB::table('news')->where('category_id','12')->whereDate('created_at','2020-06-12')->get();
         return view('front.pages.search')

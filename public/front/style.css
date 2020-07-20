@@ -1797,3 +1797,19 @@
 
                     
                 }
+
+                
+
+                .searchlink:link {
+                    color: black;
+                    }
+        
+                    /* visited link */
+                    .searchlink:visited {
+                    color: red;
+                    }
+        
+                    /* mouse over link */
+                    .searchlink:hover {
+                    color: red;
+                    }

@@ -33,7 +33,7 @@
                             <div class="top-header-content d-flex align-items-center justify-content-between">
                                 <!-- Logo -->
                                 <div class="logo">
-                                    <a href="index.html"><img src="{{ asset('front/img/core-img/logo.png') }}" alt=""></a>
+                                    <a href="/"><img src="{{ asset('front/img/core-img/logo.png') }}" alt=""></a>
                                 </div>
     
                                 <!-- Login Search Area -->
