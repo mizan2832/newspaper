@@ -222,9 +222,14 @@
 
                 <!-- Newsletter Widget -->
                 <div class="newsletter-widget">
+                    @if (session()->has('message'))
+                        <div class="alert alert-success">
+                            {{ session()->get('message') }}
+                        </div>
+                    @endif
                     <h4>Newsletter</h4>
                     <p class="text-green">Subcribe to get braking news in your email address.</p>
-                    <form action="/newsletter" method="POST">
+                    <form action="{{ route('subcribe.store') }}" method="POST">
                         @csrf
                         <input type="text" name="name" placeholder="Name">
                         <input type="email" name="email" placeholder="Email">

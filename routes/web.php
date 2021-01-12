@@ -9,6 +9,12 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin','mid
     Route::resource('category', 'CategoryController');
     Route::resource('tag', 'TagController'); 
     Route::post('search/{search}','DashboardController@news_search')->name('search');
+
+    Route::get('/subcriber/', 'TaskController@index')->name('task.index');
+    Route::get('/subcriber/task/edit/{id}', 'TaskController@edit')->name('task.edit');
+    Route::post('/subcriber/task/store', 'TaskController@store')->name('task.store');
+    Route::post('/subcriber/task/update/{id}', 'TaskController@update')->name('task.update');
+    Route::post('/subcriber/task/delete/{id}', 'TaskController@destroy')->name('task.destroy');
 });
 Route::group(['as' => 'author.', 'prefix' => 'author', 'namespace' => 'Author', 'middleware' => ['auth', 'author']], function () {
     Route::get('dashboard', 'DashboardController@index')->name('dashboard');
@@ -25,6 +31,8 @@ Route::prefix('news')->group(function () {
     Route::get('/breaking ', 'CategoryNewsController@category');
 
 });
+Route::resource('subcribe','SubcriberController');
+
 Route::group(['as' => 'editor.', 'prefix' => 'editor', 'namespace' => 'Editor', 'middleware' => ['auth', 'editor']], function () {
     Route::get('dashboard', 'DashboardController@index')->name('dashboard');
 });
@@ -32,3 +40,5 @@ Route::group(['as' => 'editor.', 'prefix' => 'editor', 'namespace' => 'Editor', 
 Route::post('/comment/store', 'CommentController@store')->name('comment.add');
 Route::post('/reply/store', 'CommentController@replyStore')->name('reply.add');
 Route::post('/newsletter', 'NewsletterController@store');
+
+
