@@ -46,7 +46,7 @@ class NewsController extends Controller
             'title'       => 'required|unique:news|max:255',
             'description' => 'required',
             'category'    => 'required',
-            'image'       => 'required|max:2048|dimensions:min_width=100,min_height=200',
+            'image'       => 'required|max:2048',
             'category'    => 'required',
 
         ]);
